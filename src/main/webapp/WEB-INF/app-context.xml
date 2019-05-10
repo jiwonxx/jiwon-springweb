@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/jee/spring-jee.xsd">
 
 	<mvc:annotation-driven />
-	<context:component-scan base-package="org.jacob" />
+	<context:component-scan base-package="com.jiwon" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
