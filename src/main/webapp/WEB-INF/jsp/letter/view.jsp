@@ -3,19 +3,33 @@
 <html>
 <head>
 <base href="${pageContext.request.contextPath }/" />
-<title>편지</title>
+<title>게시판</title>
+<script type="text/javascript">
+	function confirmDelete() {
+		if (confirm("삭제하시겠습니까?"))
+			return true;
+		else
+			return false;
+	}
+</script>
 </head>
 <body>
+	<%@ include file="/WEB-INF/jsp/header.jsp"%>
 	<h2>글 보기</h2>
 	<p>
-		<a href="./app/letter/listOfReceiver">받은 편지 목록</a>
+		
+	<c:if test="${senderId or receiverId == sessionScope.MEMBER.memberId }">
+			<a href="./app/letter/delete?letterId=${letter.letterId }"
+				onclick="return confirmDelete();">글삭제</a>
+</c:if>
+
 	</p>
 	<hr />
 	<p>
-		<span>${letter.receiverId }</span> | <span style="font-weight: bold;">${letter.title }</span>
+		<span>${letter.letterId }</span> | <span style="font-weight: bold;">${letter.title }</span>
 	</p>
 	<p>
-		<span>${letter.cdate }</span> | <span>${letter.name }</span>
+		<span>${letter.cdate }</span> | <span>보낸사람 : ${letter.senderName }</span> | <span>받은사람 : ${letter.receiverName }</span>
 	</p>
 	<hr />
 	<p>${letter.contentHtml }</p>

@@ -2,6 +2,9 @@ package com.jiwon.letter;
 
 import java.util.List;
 
+
+import javax.servlet.http.HttpSession;
+
 import com.jiwon.book.chap11.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,6 +41,8 @@ public class LetterController {
 				.listLettersOfSender(member.getMemberId());
 		model.addAttribute("letters", letters);
 	}
+	
+	
 
 	/**
 	 * 보기
@@ -60,6 +65,13 @@ public class LetterController {
 		letterDao.addLetter(letter);
 		return "redirect:/app/letter/listOfSender";
 	}
+	
+	
+	
+	@GetMapping("/letter/addForm")
+	public String AddForm(HttpSession session) {
+		return "letter/addForm";
+	}
 
 	/**
 	 * 편지 삭제
@@ -72,6 +84,8 @@ public class LetterController {
 		if (updatedRows == 0)
 			throw new RuntimeException("No Authority!");
 
-		return "redirect:/app/letter/";
+		return "redirect:/app/letter/listOfSender or redirect:/app/letter/listOfReceiver";
 	}
+	
+	
 }

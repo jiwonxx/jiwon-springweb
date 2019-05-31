@@ -1,6 +1,5 @@
 package com.jiwon.letter;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +12,13 @@ import org.springframework.stereotype.Repository;
 public class LetterDao {
 
 	static final String LIST_LETTERS_OF_SEDER = "select letterId,title,receiverId,receiverName,cdate from letter where senderId=?";
+	
 	static final String LIST_LETTERS_OF_RECEIVER = "select letterId,title,senderId,senderName,cdate from letter where receiverId=?";
-	static final String ADD_LETTER = "insert letter(title,content,senderId,senderName,receiverId,receiverName) values(?,?,?,?,?,?);";
+	
+	static final String ADD_LETTER = "insert letter(title,content,senderId,senderName,receiverId,receiverName) values(?,?,?,?,?,?)";
+	
 	static final String GET_LETTER = "select letterId,title,content,senderId,senderName,receiverId,receiverName,cdate from letter where letterId=? and (senderId=? or receiverId=?)";
+	
 	static final String DELETE_LETTER = "delete from letter where letterId=? and (senderId=? or receiverId=?)";
 
 	@Autowired
