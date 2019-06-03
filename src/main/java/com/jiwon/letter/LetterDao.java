@@ -19,7 +19,7 @@ public class LetterDao {
 	
 	static final String GET_LETTER = "select letterId,title,content,senderId,senderName,receiverId,receiverName,cdate from letter where letterId=? and (senderId=? or receiverId=?)";
 	
-	static final String DELETE_LETTER = "delete from letter where letterId=? and (senderId=? or receiverId=?)";
+	static final String DELETE_LETTER = "delete from letter where letterId=? and (senderId=? or receiverId=?)";;
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -65,7 +65,7 @@ public class LetterDao {
 	 * 삭제
 	 */
 	public int deleteLetter(String letterId, String memberId) {
-		return jdbcTemplate.update(GET_LETTER, letterId, memberId, memberId);
-	}
+		return jdbcTemplate.update(DELETE_LETTER, letterId, memberId, memberId);
+}
 
 }

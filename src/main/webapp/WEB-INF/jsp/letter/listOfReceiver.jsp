@@ -36,10 +36,10 @@ th {
 		<tbody>
 			<c:forEach var="letter" items="${letters}">
 				<tr>
-					<td><a href="./app/letter/view?letterId=${letter.letterId }">${letter.letterId }</a></td>
-					<td><a href="./app/letter/view?letterId=${letter.letterId }">${letter.title }</a></td>
-					<td>${letter.senderName }</td>
-					<td>${letter.cdate }</td>
+					<th><a href="./app/letter/view?letterId=${letter.letterId } ">${letter.letterId }</a></th>
+					<th><a href="./app/letter/view?letterId=${letter.letterId } ">${letter.title }</a></th>
+					<th>${letter.senderName }</th>
+					<th>${letter.cdate }</th>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -17,9 +17,8 @@
 	<%@ include file="/WEB-INF/jsp/header.jsp"%>
 	<h2>글 보기</h2>
 	<p>
-		
-	<c:if test="${senderId or receiverId == sessionScope.MEMBER.memberId }">
-			<a href="./app/letter/delete?letterId=${letter.letterId }"
+	<c:if test="${letter.receiverId == sessionScope.MEMBER.memberId or letter.senderId == sessionScope.MEMBER.memberId }">
+			<a href="./app/letter/delete?letterId=${letter.letterId}&mode=${param.mode}"
 				onclick="return confirmDelete();">글삭제</a>
 </c:if>
 
