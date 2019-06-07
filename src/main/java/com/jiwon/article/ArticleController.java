@@ -74,7 +74,7 @@ public class ArticleController {
 	/**
 	 * 글 수정 화면
 	 */
-	@GetMapping("/article/updateForm")
+	@GetMapping("/article/s/updateForm")
 	public void updateForm(@RequestParam("articleId") String articleId,
 			@SessionAttribute("MEMBER") Member member, Model model) {
 		Article article = articleDao.getArticle(articleId);
